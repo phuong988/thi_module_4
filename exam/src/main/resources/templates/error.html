@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lỗi</title>
+</head>
+<body>
+<h1>Đã xảy ra lỗi</h1>
+<p th:text="${errorMessage}"></p>
+<ul>
+    <li th:each="error : ${errors}" th:text="${error.getMessage()}"></li>
+</ul>
+<a th:href="@{/promotions}">Quay lại danh sách khuyến mãi</a>
+</body>
+</html>

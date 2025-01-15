@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sửa khuyến mãi</title>
+</head>
+<body>
+<h1>Sửa khuyến mãi</h1>
+
+<form th:action="@{/promotions/edit}" th:object="${promotion}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label>Tiêu đề:</label>
+        <input type="text" th:field="*{title}">
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+    </div>
+    <div>
+        <label>Ngày bắt đầu:</label>
+        <input type="date" th:field="*{startDate}">
+        <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></span>
+    </div>
+    <div>
+        <label>Ngày kết thúc:</label>
+        <input type="date" th:field="*{endDate}">
+        <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></span>
+    </div>
+    <div>
+        <label>Mức giảm giá:</label>
+        <input type="number" th:field="*{discountRate}">
+        <span th:if="${#fields.hasErrors('discountRate')}" th:errors="*{discountRate}"></span>
+    </div>
+    <div>
+        <label>Chi tiết:</label>
+        <textarea th:field="*{detail}"></textarea>
+        <span th:if="${#fields.hasErrors('detail')}" th:errors="*{detail}"></span>
+    </div>
+    <button type="submit">Lưu</button>
+</form>
+
+<a th:href="@{/promotions}">Quay lại danh sách</a>
+</body>
+</html>
